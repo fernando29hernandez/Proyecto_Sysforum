@@ -22,8 +22,8 @@ from django.conf.urls import include, url
 urlpatterns = [
     path('admin/', admin.site.urls),
     url(r'^$',show_dashboard, name="dashboard" ),
-    url(r'^tema/list/', list_temas, name='list_temas'), #listado
-    url(r'^tema/add/', add_tema, name='add_tema'), #formulario para añadir
+    url(r'^tema/list', list_temas, name='list_temas'), #listado
+    url(r'^tema/add', add_tema, name='add_tema'), #formulario para añadir
     url(r'^ver/(?P<pk>\d+)$', ver_tema, name='ver'), 
 
 ]
