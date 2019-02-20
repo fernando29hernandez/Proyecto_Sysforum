@@ -51,11 +51,12 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'Proyecto_Sysforum.urls'
+SETTINGS_PATH = os.path.dirname(os.path.dirname(__file__))
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['./Templates'],
+        'DIRS': [os.path.join(SETTINGS_PATH, 'Templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -124,9 +125,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = "/opt/bitnami/apps/django/django_projects/Proyecto_Sysforum/Proyecto_Sysforum/static"
-#STATICFILES_DIRS = (
+STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-#    os.path.join(BASE_DIR, 'static/'),
-#)
+    os.path.join(BASE_DIR, 'static/'),
+)
