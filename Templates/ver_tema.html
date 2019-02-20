@@ -1,0 +1,53 @@
+{% extends "dashboard.html" %}
+{% block title %}
+ Listado de temas disponibles
+{% endblock %}
+ 
+{% block content %}
+<div class="text-left" style="padding-left: 20px">
+        <div class="row">
+                {% if messages %}
+                    <div class="alert alert-success">
+                        {% for message in messages %}
+                            {{ message }}
+                        {% endfor %}
+                    </div>
+                {% endif %}
+                <div class="panel panel-default">
+                <h2>    {{tema.Titulo}}</h2>
+                <br>
+                <hr />
+                <h4>    {{tema.Descripcion}}</h4>                    
+                </div>
+                <br>
+                <br>
+                {%  if comentarios %}
+                    {%  for comentario in comentarios %}
+                        <tr>
+                            <div class="panel panel-success">
+                                
+                                <div class="panel-body">
+                                    {{comentario.contenido}}
+                                </div>         
+                            </div>
+                            
+                        </tr>
+                    {%  endfor %}
+                {%  else %}
+                    <h1>No hay comentarios</h1>
+                {%  endif %}
+                <form action="{% url 'ver' tema.id %}" method="post">{% csrf_token %}
+                    {{ form }}
+                    <input  name="submit" type="submit" class="btn btn-block btn-success" value="Submit">
+                </form>
+</div>
+
+
+{% endblock %}
+{% block footer %}
+ <div class="navbar navbar-inverse navbar-fixed-bottom">
+ <div class="text-center" style="padding-top: 12px">
+ <small style="color: #fff">Footer Secciones List</small>
+     </div>
+ </div>
+{% endblock %}

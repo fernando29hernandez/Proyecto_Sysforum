@@ -15,7 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from Foro.views import list_temas, add_tema, ver_tema, show_dashboard
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+        # url(r'^$', 'Proyecto_AYD2.views.home', name='home'),
+    # url(r'^blog/', include('blog.urls')),
+    url(r'^/',show_dashboard, name="dashboard" ),
+    url(r'^tema/list/', list_temas, name='list_temas'), #listado
+    url(r'^tema/add/', add_tema, name='add_tema'), #formulario para añadir
+    url(r'^ver/(?P<pk>\d+)$', ver_tema, name='ver'), 
+
 ]
