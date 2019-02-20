@@ -25,7 +25,7 @@ SECRET_KEY = 'wc7q@_+9@w^z#tg7q^b804h0q@a(%p*kd_#0b&wgue)mje(ucz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['34.73.145.117', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -77,11 +77,11 @@ WSGI_APPLICATION = 'Proyecto_Sysforum.wsgi.application'
 DATABASES = {
     'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'HOST': '127.0.0.1',
+            'HOST': '/opt/bitnami/mysql/tmp/mysql.sock',
             'PORT': '3306',
             'NAME': 'proyecto_ayd2',
             'USER': 'root',
-            'PASSWORD': '123',
+            'PASSWORD': 'HhtNBGsAnU81',
     }
 }
 
@@ -123,10 +123,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = ''
-STATICFILES_DIRS = (
+STATIC_ROOT = "/opt/bitnami/apps/django/django_projects/Proyecto_Sysforum/Proyecto_Sysforum/static"
+#STATICFILES_DIRS = (
     # Put strings here, like "/home/html/static" or "C:/www/django/static".
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
-    os.path.join(BASE_DIR, 'static/'),
-)
+#    os.path.join(BASE_DIR, 'static/'),
+#)
