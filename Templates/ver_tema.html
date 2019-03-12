@@ -3,7 +3,7 @@
  Listado de temas disponibles
 {% endblock %}
  
-{% block content %}
+{% block contento %}
 <div class="text-left" style="padding-left: 20px">
         <div class="row">
                 {% if messages %}
@@ -14,10 +14,10 @@
                     </div>
                 {% endif %}
                 <div class="panel panel-default">
-                <h2>    {{tema.Titulo}}</h2>
+                <h2>  Tema:  {{tema.Titulo}}</h2>
                 <br>
                 <hr />
-                <h4>    {{tema.Descripcion}}</h4>                    
+                <h4>   Descripcion: {{tema.Descripcion}}</h4>                    
                 </div>
                 <br>
                 <br>
@@ -37,9 +37,11 @@
                     <h1>No hay comentarios</h1>
                 {%  endif %}
                 <form action="{% url 'ver' tema.id %}" method="post">{% csrf_token %}
-                    {{ form }}
-                    <input  name="submit" type="submit" class="btn btn-block btn-success" value="Submit">
+                    {{ form.as_p }}
+                    <input  name="submit" type="submit" class="btn btn-success" value="Comentar">
+                 
                 </form>
+</div>
 </div>
 
 

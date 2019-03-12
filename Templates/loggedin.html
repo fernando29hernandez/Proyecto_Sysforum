@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{%load staticfiles%}
+
+{% block title %}
+  Usuario
+ 
+  {% endblock %}
+
+{% block header %}
+{% if request.user.is_authenticated %}
+
+{% else %}
+
+<!-- Just an image -->
+
+<nav class="navbar navbar-inverse">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="/"> HOME </a>
+    </div>
+</nav>
+
+{%endif%}
+<center>
+<h6 id="hello">Bienvenido!!!</h6>
+</center>
+{% endblock %}

@@ -3,29 +3,28 @@
 Publicacion de tema en Sysforum
 {% endblock %}
  
-{% block content %}
+{% block contento %}
 <div class="row">
         <div class="panel panel-default">
-             
             <div class="table table-responsive"> 
+                  
                 <div class="panel-body">
-    
-                                <table class="table table-striped" magin="auto" width="600" border="2" cellspacing="3" cellpadding="3" style="font-size: 10pt">
+                        <h2>Publicacion de tema en Sysforum</h2>
+            
+                    <table class="table table-striped" magin="auto" width="600" border="2" cellspacing="3" cellpadding="3" style="font-size: 10pt">
                            
                               <form action="" method="post">{% csrf_token %}
-                          {{ form.as_p }}
-                       <input name="submit" type="submit" class="btn  btn-success" value="Crear Publicacion">
-            </form>
-                                </table>
-                        </div>
+                                {{ form.as_p}}
+                                <input name="submit" type="submit" class="btn  btn-success" value="Crear Publicacion">
+                                
+                            </form>
+                    </table>
                 </div>
+            </div>
         </div>
-        </div>
-        </div>
-    </div>
 </div>
-</div>
-</div>
+
+   
 {% endblock %}
 <!--finaliza el bloque content-->
 <!--heredamos el bloque footer-->

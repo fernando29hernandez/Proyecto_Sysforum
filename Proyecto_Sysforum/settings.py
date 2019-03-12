@@ -25,6 +25,8 @@ SECRET_KEY = 'wc7q@_+9@w^z#tg7q^b804h0q@a(%p*kd_#0b&wgue)mje(ucz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
+AUTH_USER_MODEL = 'Foro.Usuario'
+
 ALLOWED_HOSTS = []
 
 

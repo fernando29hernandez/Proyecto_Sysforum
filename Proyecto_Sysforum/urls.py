@@ -15,14 +15,22 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from Foro.views import list_temas, add_tema, ver_tema, show_dashboard
+from Foro.views import list_temas, add_tema, ver_tema, show_dashboard,home,login,logout,loggedin,invalid,ver
 from django.conf.urls import include, url
+from Foro import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^$',show_dashboard, name="dashboard" ),
+    url(r'^dashboard',show_dashboard, name="dashboard" ),
     url(r'^tema/list/', list_temas, name='list_temas'), #listado
     url(r'^tema/add/', add_tema, name='add_tema'), #formulario para añadir
     url(r'^ver/(?P<pk>\d+)$', ver_tema, name='ver'), 
-
+    url(r'^$',home,name='home'),
+    url(r'^accounts/login/$',login,name='login'),
+	url(r'^accounts/auth/$', ver,name='ver_auth'),
+	url(r'^accounts/logout/$', logout,name='logout'),
+	url(r'^accounts/loggedin/', loggedin,name='loggedin'),
+	url(r'^accounts/invalid/$', invalid,name='invalid'),
+    url(r'^crearUsuario/', views.CrearUsuario, name="CrearUsuario"),
+   
 ]
