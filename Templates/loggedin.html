@@ -1,0 +1,29 @@
+{% extends "dashboard.html" %}
+{%load staticfiles%}
+
+{% block title %}
+  Usuario
+ 
+  {% endblock %}
+
+{% block header %}
+{% block contento %}
+{% if request.user.is_authenticated %}
+<center>
+  <h1 id="hello">Bienvenido!!!</h1>
+  </center>
+{% else %}
+
+<!-- Just an image -->
+
+<nav class="navbar navbar-inverse">
+    <div class="navbar-header">
+        <a class="navbar-brand" href="/"> HOME </a>
+    </div>
+</nav>
+
+{%endif%}
+
+{% endblock %}
+
+{% endblock %}
