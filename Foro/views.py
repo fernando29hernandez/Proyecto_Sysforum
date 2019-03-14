@@ -14,19 +14,23 @@ from django.urls import reverse
 from django.shortcuts import redirect
 
 def show_dashboard(request):
-    return render(request, 'dashboard.html', {})
+    return render(request, 'loggedin.html', {})
 
 def list_temas(request):
     return render(request,"listar_temas.html", {"temas": Tema.objects.all()})
 
 
 def add_tema(request):
-    form = TemaForm(request.POST or None)
-    if request.method == 'POST':
-        if form.is_valid():
-            form.save()
-            return redirect('list_temas')
-    return render(request, 'crear_tema.html', {'form': form})
+	form = TemaForm(request.POST or None)
+	aux = Usuario.objects.get(id=request.user.id)	
+	form.fields['usuario_fk'].initial = request.user.id
+	if request.method == 'POST':
+		
+		print(form.is_valid())
+		if form.is_valid():
+			form.save()
+			return redirect('list_temas')
+	return render(request, 'crear_tema.html', {'form': form})
 
 def ver_tema(request, pk):
     tema = Tema.objects.get(id=pk)

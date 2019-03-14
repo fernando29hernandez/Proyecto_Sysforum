@@ -28,7 +28,9 @@
                        
                         {%  for tema in temas %}
                             <tr>
-                                <td><h1>{{tema.Titulo}}</h1> <h3>Descripcion:{{tema.Descripcion}}</h3>
+                                <td><h3>{{tema.Titulo}}</h3> 
+                                    <h5>Descripcion: {{tema.Descripcion}}</h5>
+                                    <h5>Autor: {{tema.usuario_fk.username}}</h5>
                                     <a href="{% url 'ver' tema.id %}" class="btn  btn-success">Ver Tema</a>                 
                                 </td>
                                
@@ -36,7 +38,7 @@
                             </tr>
                         {%  endfor %}
                         {%  else %}
-                            <h1>No hay registros</h1>
+                            <h3>No hay temas creados en la plataforma</h3>
                         {%  endif %}
                     </tbody>
                     </table>

@@ -14,11 +14,13 @@
                     </div>
                 {% endif %}
                 <div class="panel panel-default">
-                <h2>  Tema:  {{tema.Titulo}}</h2>
+                <h2>  {{tema.Titulo}}</h2>
                 <br>
                 <hr />
                 <h4>   Descripcion: {{tema.Descripcion}}</h4>                    
-                </div>
+                <hr />
+                <h4>   Posteado Por: {{tema.usuario_fk.username}}</h4>                    
+            </div>
                 <br>
                 <br>
                 {%  if comentarios %}
@@ -27,14 +29,15 @@
                             <div class="panel panel-success">
                                 
                                 <div class="panel-body">
-                                    {{comentario.contenido}}
+                                    <h3>{{comentario.contenido}}</h3>
+                                    <div class="Panel-footer">{{comentario.fecha_creacion}}</div>
                                 </div>         
                             </div>
                             
                         </tr>
                     {%  endfor %}
                 {%  else %}
-                    <h1>No hay comentarios</h1>
+                    <h3>No hay comentarios hechos a este tema </h3>
                 {%  endif %}
                 <form action="{% url 'ver' tema.id %}" method="post">{% csrf_token %}
                     {{ form.as_p }}

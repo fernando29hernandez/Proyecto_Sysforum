@@ -9,7 +9,23 @@ from Foro.models import *
 class TemaForm(ModelForm):
     class Meta:
         model = Tema
-        fields = ['Titulo', 'Descripcion']
+        fields = ['Titulo', 'Descripcion','usuario_fk']
+        labels={
+            'Titulo': 'Ingrese nombre de tema a discusion',
+            'Descripcion': 'Brinde una descripcion de ayuda ',
+    
+        }
+        widgets = {
+            'Titulo': TextInput(attrs={'class':'form-control'}),
+            'Descripcion': TextInput(attrs={'class':'form-control'}),
+            'usuario_fk' : forms.HiddenInput(),           
+                
+        }
+
+class TemaForm1(ModelForm):
+    class Meta:
+        model = Tema
+        fields = ['Titulo', 'Descripcion','usuario_fk']
         labels={
             'Titulo': 'Ingrese nombre de tema a discusion',
             'Descripcion': 'Brinde una descripcion de ayuda ',
@@ -19,7 +35,7 @@ class TemaForm(ModelForm):
             'Descripcion': TextInput(attrs={'class':'form-control'}),
             
         }
-        
+         
 
 class ComentarioForm(ModelForm):
     class Meta:

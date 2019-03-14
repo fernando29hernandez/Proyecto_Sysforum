@@ -105,15 +105,22 @@ botton: 748px;
   
    
     
-    <div class="flex-center position-ref full-height">
+    <div class="flex-center ">
         {% if request.user.is_authenticated %}
         <div class="top-right links">
              <a href="/accounts/logout/">Logout</a>   
         </div>
+        <div class="container">
+            <!-- bloque de contenido para el contenido de la página-->
+            {% block content %}
+     
+            {% endblock %}
+        </div> 
         {% else %}
         <div class="top-right links">
              <a href="/accounts/login/">Login</a> 
         </div>
+        
         <div class="content">
             <div class="title m-b-md">
                 Proyecto Sysforum
@@ -124,12 +131,7 @@ botton: 748px;
             </div>
         </div>
         {% endif %}  
-           <div class="container">
-            <!-- bloque de contenido para el contenido de la página-->
-            {% block content %}
-     
-            {% endblock %}
-        </div> 
+       
     </div>  
      
     
