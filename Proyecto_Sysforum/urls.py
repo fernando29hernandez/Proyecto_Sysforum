@@ -33,6 +33,7 @@ urlpatterns = [
 	url(r'^accounts/logout/$', logout,name='logout'),
 	url(r'^accounts/loggedin/', loggedin,name='loggedin'),
 	url(r'^accounts/invalid/$', invalid,name='invalid'),
-    url(r'^crearUsuario/', views.CrearUsuario, name="CrearUsuario"),
-   
+    url(r'^crearUsuario/', views.CrearUsuario, name="CrearUsuario"), 
 ]
+
+urlpatterns += [url(r'^silk/', include('silk.urls', namespace='silk'))]

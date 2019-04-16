@@ -83,13 +83,12 @@ WSGI_APPLICATION = 'Proyecto_Sysforum.wsgi.application'
 DATABASES = {
     'default': {
             'ENGINE': 'django.db.backends.mysql',
-            'HOST': '/opt/bitnami/mysql/tmp/mysql.sock',
-            #'HOST': '35.225.157.200',
+            #'HOST': '/opt/bitnami/mysql/tmp/mysql.sock',
+            'HOST': '35.225.157.200',
             'PORT': '3306',
             'NAME': 'proyecto_ayd2',
             'USER': 'root',
-            'PASSWORD': 'HhtNBGsAnU81',
-            #'PASSWORD': 'root',
+            'PASSWORD': 'root',
     }
 }
 
